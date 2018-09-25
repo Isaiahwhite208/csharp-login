@@ -9,5 +9,10 @@ namespace csharp_login.models
   {
    return password == Password;
   }
+  public User(string name, string pass)
+  {
+   Username = name;
+   password = pass;
+  }
  }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using csharp_login.models;
 
 namespace csharp_login
 {
@@ -6,13 +8,27 @@ namespace csharp_login
  {
   static void Main(string[] args)
   {
+   Dictionary<string, User> users = new Dictionary<string, User>()
+   {
+    {"mark", new User("mark", "IHeartCode")},
+    {"jake", new User("jake", "MarkRocks")},
+   };
+
+
    Console.Clear();
    Console.WriteLine("Welcome user, Login to continue");
-   Console.WriteLine("Username: ");
-   Console.ReadLine();
-   Console.WriteLine("Password: ");
-   Console.ReadLine();
-
+   Console.Write("Username: ");
+   string username = Console.ReadLine();
+   Console.Write("Password: ");
+   string password = Console.ReadLine();
+   if (users.ContainsKey(username) && (users[username].ValidatePassword(password))
+    {
+    System.Console.WriteLine("Success!");
+   }
+   else
+   {
+    System.Console.WriteLine("Invalid Username/Password!");
+   }
   }
  }
 }
